@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_multiple_files = true ;
+option java_package = "com.example.bootiful.grpc";
+option java_outer_classname = "Dogs";
+
+
+message Dog {
+  string name = 1;
+  string description = 2;
+  int32 id = 3;
+}
+
+message ListDogsRequest {}
+
+message ListDogsResponse {
+  repeated Dog dogs = 1;
+}
+
+service DogService {
+
+  rpc list (ListDogsRequest) returns (ListDogsResponse);
+}
